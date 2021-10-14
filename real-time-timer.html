@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Assignment 3: Real Time Timer.</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <style type="text/css">
+            .task-list {
+                border: 1px solid #fff;
+                border-radius: 10px;
+                margin-top: 1rem;
+            }
+        </style>
+    </head>
+    <body class="bg-info text-white" onload="startTime()">
+
+        <section class="container mt-5">
+          <a href="index.html" class="btn btn-dark d-flex flex-end text-center justify-content-center">Back To Home</a>
+          <h4 class="mt-4 mb-4">Assignment 3: Real Time Timer</h4>
+          <h2 id="txt" class="text-center"></h2>
+        </section>
+
+        <script>
+          function startTime() {
+            const today = new Date();
+            var hours = today.getHours();
+            var minutes = today.getMinutes();
+            var seconds = today.getSeconds();
+            minutes = checkTime(minutes);
+            seconds = checkTime(seconds);
+            document.getElementById('txt').innerHTML =  hours + ":" + minutes + ":" + seconds;
+            setTimeout(startTime, 1000);
+          }
+
+          function checkTime(i) {
+            if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+            return i;
+          }
+        </script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </body>
+</html>
